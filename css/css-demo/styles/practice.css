@@ -1,0 +1,21 @@
+#contact-info {
+  font-size: .8em;
+}
+#contact-info:hover {
+  color: red;
+} 
+.job {
+  background-color: #e9e5dc;
+  border-radius: 10px;
+  padding: 2px;
+  padding-left: 15px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.lists {
+  font-size: .8em;
+}
+
+#work-experience .job {
+  color: orange;
+}
