@@ -1,16 +1,16 @@
 #octo {
-  position: absolute;
+  position: fixed;
   margin-left: 40%;
   z-index: -1;
   padding-top: 60px;
 }
 #hat {
-  position: relative;
-  top: -350px;
-  right: 15px;
+  position: absolute;
+  bottom: 180px;
+  right: -50px;
 }
 #glasses {
-  position: relative;
-  top: 50px;
-  right: 220px;
+  position: absolute;
+  bottom: 130px;
+  right: 30px;
 }
