@@ -1,0 +1,38 @@
+Release 0: Equip Your New Robot
+
+Def robot
+  ask "What floor would you like to visit?"
+  request = user input
+
+  current_floor = 1
+
+  while current_floor < request
+    start at current_floor and move up 1
+  end
+
+  press button for current_floor once loop is finished
+end
+
+
+Release 1: Find a Real-Life Algorithm
+
+def find_food
+  ask self "What do I want to eat?"
+  craving = what I'm in the mood for right now
+
+  open pantry and scan items
+  start with item 1 at the top right
+  item = 1
+
+  while item does not equal craving
+    move to the right until end of row
+    move down a row and reverse
+
+    if reach end of pantry without finding craving
+      go to store and buy
+    end
+  end
+end
+
+
+
