@@ -3,6 +3,7 @@ body {
   font-style: helvetica;
   max-width: 900px;
   min-width: 810px;
+  box-shadow: 5px 5px 2px #888888;
 }
 header {
   border-style: solid;
@@ -16,6 +17,7 @@ header {
   position absolute;
   margin: 1%;
   border-radius: 4px;
+  box-shadow: 5px 5px 2px #999999;
 }
 
 .column-1 {
@@ -30,6 +32,7 @@ header {
   height: 1100px;
   display: inline-block;
   vertical-align: text-top;
+  box-shadow: 5px 5px 2px #999999;
 }
 
 .column-2 {
@@ -44,6 +47,7 @@ header {
   height: 1100px;
   display: inline-block;
   vertical-align: text-top;
+  box-shadow: 5px 5px 2px #999999;
 }
 
 footer {
@@ -57,6 +61,7 @@ footer {
   background-color: #9099A2;
   width: 93.5%;
   margin: 1%;
+  box-shadow: 5px 5px 2px #999999;
 }
 a {
   text-decoration: none;
