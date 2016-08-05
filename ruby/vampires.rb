@@ -14,6 +14,23 @@ def vamp
 
   puts "Would your like to enroll in the company's health insurance plan?"
   insurance = gets.chomp
+
+  current_year = Time.now.year
+
+  if name == (“Drake Cula” || “Tu Fang”)
+    result = "Definitely a vampire"
+  elsif (age == (current_year - born)) && (garlic || insurance)
+    result = "Probably not a vampire."
+  elsif (age == (current_year - born)) || (garlic && insurance)
+    result = "Probably a vampire."
+  elsif (age == (current_year - born)) && (garlic && insurance)
+    result = "Almost certainly a vampire."
+  else
+    result = "Results inconclusive"
+  end
+
+puts result
+    
 end
 
 vamp()
