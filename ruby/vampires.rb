@@ -51,9 +51,9 @@ def vamp
           result = "Definitely a vampire"
         elsif (age == (current_year - born)) && (garlic == true || insurance == true )
           result = "Probably not a vampire."
-        elsif (age = (current_year - born)) && (garlic == false && insurance == false)
+        elsif (age != (current_year - born)) && (garlic == false && insurance == false)
           result = "Almost certainly a vampire."
-        elsif (age = (current_year - born)) && (garlic == false || insurance == false)
+        elsif (age != (current_year - born)) && (garlic == false || insurance == false)
           result = "Probably a vampire."
         else
           result = "Results inconclusive"
@@ -70,7 +70,10 @@ def vamp
 
     employees -= 1
 
-  end      
+  end
+
+  puts "Actually never mind! What do these questions have to do with anything?"
+  puts "Let's all be friends."
 end
 
 vamp()
