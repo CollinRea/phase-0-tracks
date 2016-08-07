@@ -53,12 +53,17 @@ def secret_agent
     new_pwd = ""
     
     while i < pwd.length
-      if pwd[i] == alph[j]
-        new_pwd[i] = alph[j - 1]
-        i += 1
-        j = 0
+      if pwd[i] != " "
+        if pwd[i] == alph[j]
+          new_pwd[i] = alph[j - 1]
+          i += 1
+          j = 0
+        else
+          j += 1
+        end
       else
-        j += 1
+        new_pwd[i] = pwd[i]
+        i += 1
       end
     end
     
@@ -87,46 +92,3 @@ secret_agent()
 #puts decrypt("txpsegjti")
 
 #puts decrypt(encrypt("swordfish"))
-
-
-=begin
-def encrypt(pwd)
-  
-  count = 0
-  pwd_new = ""
-
-  while count < pwd.length
-      if pwd[count] != " "
-        pwd_new[count] = pwd[count].next
-        count += 1
-      else
-        pwd_new[count] = pwd[count]
-        count += 1
-      end
-  end
-  return pwd_new
-end
-
-puts encrypt("new password")
-
-def decrypt(pwd)
-
-  count = 0
-  alph_count = 0
-  pwd_new = ""
-  alph = "abcdefghijklmnopqrstuvwxyz"
-
-  while count < pwd.length
-    if pwd[count] != " "
-      if pwd[count] == alph[alph_count]
-        pwd_new[count] = alph[alph_count -1]
-        alph_count = 0
-        count += 1
-      else
-        alph_count += 1
-      end
-    elsif 
-=end
-
-
-
