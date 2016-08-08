@@ -24,15 +24,9 @@ Define decyrpt method and take one argument
 end method
 =end
 
-def secret_agent
-  
-  puts "Would you like to decrypt or encrypt a password?"
-  agent_request = gets.chomp.downcase
-  
-  def encrypt(pwd)
-    i = 0
-    new_pwd = ""
-    
+def encrypt(pwd)
+  i = 0
+    new_pwd = "" 
     while i < pwd.length
       if pwd[i] != " "
         new_pwd[i] = pwd[i].next
@@ -42,16 +36,14 @@ def secret_agent
         i += 1
       end
     end
-    
-    return new_pwd
-  end
+  new_pwd
+end
   
-  def decrypt(pwd)
-    alph = "abcdefghijklmnopqrstuvwxyz"
+def decrypt(pwd)
+  alph = "abcdefghijklmnopqrstuvwxyz"
     i = 0
     j = 0
-    new_pwd = ""
-    
+    new_pwd = "" 
     while i < pwd.length
       if pwd[i] != " "
         if pwd[i] == alph[j]
@@ -66,29 +58,21 @@ def secret_agent
         i += 1
       end
     end
-    
-    return new_pwd
-  end
-  
-  if agent_request == "encrypt"
+    new_pwd
+end
+
+#USER INTERFACE
+
+puts "Would you like to encrypt or decrypt a password?"
+agent_request = gets.chomp.downcase
+if agent_request == "encrypt"
     puts "Please supply a password to encrypt:"
     agent_pwd = gets.chomp
     puts encrypt(agent_pwd)
-  elsif agent_request == "decrypt"
+elsif agent_request == "decrypt"
     puts "Please supply a password to decrypt:"
     agent_pwd = gets.chomp
     puts decrypt(agent_pwd)
-  else
+else
     puts "That is not a valid entry! **Self Distructing**"
-  end
 end
-
-secret_agent()
-
-
-
-#puts encrypt ("swordfish")
-
-#puts decrypt("txpsegjti")
-
-#puts decrypt(encrypt("swordfish"))
