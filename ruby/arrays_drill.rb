@@ -1,3 +1,11 @@
+def build_array (a, b, c)
+  [a, b, c]
+end
+
+def add_to_array(a, b)
+  a << b
+end
+
 our_array = []
 
 p our_array
@@ -27,3 +35,11 @@ new_array = ["books", "keyboad", "box"]
 super_array = our_array + new_array
 
 p super_array
+
+p build_array(1, "two", nil)
+
+p add_to_array([], "a")
+
+p add_to_array(["a", "b", "c", 1, 2], 3)
+
+
