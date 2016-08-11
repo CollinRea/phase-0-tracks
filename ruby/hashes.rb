@@ -13,7 +13,6 @@
 #  else get new value and update hash
 
 # print new hash
-
 client = Hash.new
 
 puts "Good Morning!"
@@ -35,16 +34,24 @@ client[:expedited] = gets.chomp.downcase == "yes" ? true : false
 
 p client
 
-puts "Would you like to update any of this information?"
+puts "\nWould you like to update any of this information?"
 puts "If so please enter the key, otherwise type 'none' to end."
 update = gets.chomp.downcase.to_sym
-
 
 if update == :none
   p client
 else
   puts "Please enter a new value for #{update}:"
-  client[update] = gets.chomp
+  new_value = gets.chomp
+  
+  if update == :age || update == :no_of_children
+    client[update] = new_value.to_i
+  elsif update == :expedited
+     new_value_bool = new_value.downcase == "yes" ? true : false
+     client[update] = new_value_bool
+  else
+    client[update] = new_value
+  end
+
   p client
 end
-
