@@ -21,3 +21,30 @@ puts "Good Morning!"
 puts "Please enter the Client's full name:"
 client[:full_name] = gets.chomp
 
+puts "Please enter the Client's age:"
+client[:age] = gets.chomp.to_i
+
+puts "Please enter the number of children the Client has:"
+client[:no_of_children] = gets.chomp.to_i
+
+puts "What is the preferred decor theme?"
+client[:decor] = gets.chomp
+
+puts "Is this an expedited request? (Yes or No)"
+client[:expedited] = gets.chomp.downcase == "yes" ? true : false
+
+p client
+
+puts "Would you like to update any of this information?"
+puts "If so please enter the key, otherwise type 'none' to end."
+update = gets.chomp.downcase.to_sym
+
+
+if update == :none
+  p client
+else
+  puts "Please enter a new value for #{update}:"
+  client[update] = gets.chomp
+  p client
+end
+
