@@ -10,7 +10,8 @@ grocery = {
     "Fresh Meats" => [
       "Ham",
       "Turkey",
-      "Roast Beef"
+      "Roast Beef",
+      "Bacon"
     ]
   },
   produce: {
@@ -23,7 +24,8 @@ grocery = {
     "Vegetables" => [
       "Tomato",
       "Potato",
-      "Carrots"
+      "Carrots",
+      "Lettuce"
     ]
   },
   employees: {
@@ -41,3 +43,22 @@ grocery = {
     }
   }
 }
+
+grocery[:deli]["Fresh Meats"].each {|meat| puts meat}
+
+p grocery[:deli]["Sandwiches"][0]
+
+puts "Ohh that sounds good, what is on it?"
+
+def sandwich(choice) 
+  puts "A #{choice} includes the following:"
+  yield
+  puts "on our FRESHEST bread!"
+end
+
+sandwich("BLT") { 
+  p grocery[:deli]["Fresh Meats"][3]
+  p grocery[:produce]["Vegetables"][3]
+  p grocery[:produce]["Vegetables"][0]
+}
+
