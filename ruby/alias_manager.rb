@@ -2,7 +2,7 @@
 
 # Define a method that takes a real name
   
-  # Create "aeiou" variable
+  # Create "aeiouy" variable
   # Create consonant variable
 
   # Split name by " " to separate first and last name into an array
@@ -16,3 +16,13 @@
   # return new alias
 #end
 
+def alias_maker(name)
+
+  vowels = "aeiouy"
+  consonant = "bcdfghjklmnpqrstvwxz"
+
+  name.split(" ").reverse.join(" ")
+
+end
+
+p alias_maker("Collin Rea")
