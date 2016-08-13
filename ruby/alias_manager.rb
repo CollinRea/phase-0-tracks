@@ -18,8 +18,8 @@
 
 def alias_maker(name)
 
-  vowels = "aeiouy"
-  consonant = "bcdfghjklmnpqrstvwxz"
+  vowels = "aeiouya"
+  consonant = "bcdfghjklmnpqrstvwxzb"
 
   name = name.split(" ").reverse.join(" ").downcase
 
@@ -49,20 +49,33 @@ def alias_maker(name)
   new_name.split.each {|word| word.capitalize!}.join(" ")
 end
 
-# p alias_maker("Felicia Torres")
 
 # User Interface
 
 def ui
-  puts "Input the name you'd like to encrypt to an Alias:"
-  user_name = gets.chomp.to_s
+  aliases = Hash.new
+  finished = false
 
-  puts "Generating..."
-  puts "     ..."
-  puts "     ..."
-  puts "     ..."
-  puts "Your Alias is:"
-  p alias_maker(user_name)
+  while finished == false
+
+    puts "Input the name you'd like to encrypt to an Alias:"
+    user_name = gets.chomp.to_s
+
+    if user_name == "quit"
+      finished = true
+    else
+      aliases[user_name] = (alias_maker(user_name))
+      puts "Generating..."
+      puts "     ..."
+      puts "     ..."
+      puts "     ..."
+      puts "Your Alias is:"
+      p alias_maker(user_name)
+      puts "If finished type 'quit' to exit, otherwise..."
+  end
+  end
+  aliases
 end
 
-ui
+ui.each {|realname, aliasname| p "#{realname} was changed to #{aliasname}"}
+
