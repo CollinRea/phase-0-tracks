@@ -23,30 +23,46 @@ def alias_maker(name)
 
   name = name.split(" ").reverse.join(" ").downcase
 
-  i = 0
-  j = 0
+  vowel_i = 0
+  cons_i = 0
   new_name = ""
 
-  while i < name.length
-    if name[i] == vowels[j] || name[i] == consonant[j]
-      if name[i] == vowels[j]
-        new_name[i] = vowels[j + 1]
-        i += 1
-        j = 0
+  while vowel_i < name.length
+    if name[vowel_i] == vowels[cons_i] || name[vowel_i] == consonant[cons_i]
+      if name[vowel_i] == vowels[cons_i]
+        new_name[vowel_i] = vowels[cons_i + 1]
+        vowel_i += 1
+        cons_i = 0
       else
-        new_name[i] = consonant[j + 1]
-        i += 1
-        j = 0
+        new_name[vowel_i] = consonant[cons_i + 1]
+        vowel_i += 1
+        cons_i = 0
       end
-    elsif name[i] == " "
-      new_name[i] = name[i]
-      i += 1
+    elsif name[vowel_i] == " "
+      new_name[vowel_i] = name[vowel_i]
+      vowel_i += 1
     else
-      j += 1
+      cons_i += 1
     end
   end
-  
+
   new_name.split.each {|word| word.capitalize!}.join(" ")
 end
 
-p alias_maker("Collin Rea")
+# p alias_maker("Felicia Torres")
+
+# User Interface
+
+def ui
+  puts "Input the name you'd like to encrypt to an Alias:"
+  user_name = gets.chomp.to_s
+
+  puts "Generating..."
+  puts "     ..."
+  puts "     ..."
+  puts "     ..."
+  puts "Your Alias is:"
+  p alias_maker(user_name)
+end
+
+ui
