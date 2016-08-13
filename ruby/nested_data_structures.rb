@@ -44,9 +44,11 @@ grocery = {
   }
 }
 
+puts "Here is a list of our #{grocery[:deli].keys.last}:"
 grocery[:deli]["Fresh Meats"].each {|meat| puts meat}
 
-p grocery[:deli]["Sandwiches"][0]
+puts "Our sandwich of the day is the:"
+puts grocery[:deli]["Sandwiches"][0]
 
 puts "Ohh that sounds good, what is on it?"
 
@@ -57,8 +59,10 @@ def sandwich(choice)
 end
 
 sandwich("BLT") { 
-  p grocery[:deli]["Fresh Meats"][3]
-  p grocery[:produce]["Vegetables"][3]
-  p grocery[:produce]["Vegetables"][0]
+  puts grocery[:deli]["Fresh Meats"][3]
+  puts grocery[:produce]["Vegetables"][3]
+  puts grocery[:produce]["Vegetables"][0]
 }
 
+puts "Our employee of the month is #{grocery[:employees].keys.last}!"
+puts "Missing #{grocery[:employees]["Jessica"][:days_missed]} days of work all of last month!"
