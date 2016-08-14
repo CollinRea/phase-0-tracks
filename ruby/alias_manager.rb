@@ -23,26 +23,26 @@ def alias_maker(name)
 
   name = name.split(" ").reverse.join(" ").downcase
 
-  vowel_i = 0
-  cons_i = 0
+  name_i = 0
+  vc_counter = 0
   new_name = ""
 
-  while vowel_i < name.length
-    if name[vowel_i] == vowels[cons_i] || name[vowel_i] == consonant[cons_i]
-      if name[vowel_i] == vowels[cons_i]
-        new_name[vowel_i] = vowels[cons_i + 1]
-        vowel_i += 1
-        cons_i = 0
+  while name_i < name.length
+    if name[name_i] == vowels[vc_counter] || name[name_i] == consonant[vc_counter]
+      if name[name_i] == vowels[vc_counter]
+        new_name[name_i] = vowels[vc_counter + 1]
+        name_i += 1
+        vc_counter = 0
       else
-        new_name[vowel_i] = consonant[cons_i + 1]
-        vowel_i += 1
-        cons_i = 0
+        new_name[name_i] = consonant[vc_counter + 1]
+        name_i += 1
+        vc_counter = 0
       end
-    elsif name[vowel_i] == " "
-      new_name[vowel_i] = name[vowel_i]
-      vowel_i += 1
+    elsif name[name_i] == " "
+      new_name[name_i] = name[name_i]
+      name_i += 1
     else
-      cons_i += 1
+      vc_counter += 1
     end
   end
 
