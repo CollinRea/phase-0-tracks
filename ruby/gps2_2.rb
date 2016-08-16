@@ -39,6 +39,11 @@ end
   # print updated list
 # output: updated hash
 
+def rem_item_from_list(list, item_name)
+  list.delete_if {|item, value| item == item_name}
+  print_list(list)
+end
+
 # Method to update the quantity of an item
 # input: item name to be updated and new quantity
 # steps:
@@ -46,6 +51,11 @@ end
   # IF found, update value with given quantity
   # print updated list
 # output: updated hash
+
+def update_list(list, item_name, new_quant)
+  list[item_name] = new_quant
+  print_list(list)
+end
 
 # Method to print a list and make it look pretty
 # input: take the list to be printed
@@ -68,3 +78,5 @@ end
 groceries = new_list("apples oranges bananas kiwis")
 
 add_item_to_list(groceries, "grapes")
+rem_item_from_list(groceries, "apples")
+update_list(groceries, "bananas", 10)
