@@ -8,9 +8,9 @@
   # print the list to the console [can you use one of your other methods here?]
 # output: Hash 
 
-def new_list(list)
+def new_list(string_of_items)
   our_list = {}
-  split_list = list.split(" ")
+  split_list = string_of_items.split(" ")
   split_list.each do |item|
     our_list[item] = 1
   end
@@ -26,8 +26,8 @@ end
   # print the updated list
 # output: updated hash
 
-def add_item_to_list(list, name, quantity = 1)
-  list[name] = quantity
+def add_item_to_list(list, item_name, quantity = 1)
+  list[item_name] = quantity
   print_list(list)
 end
 
@@ -52,8 +52,8 @@ end
   # print updated list
 # output: updated hash
 
-def update_list(list, item_name, new_quant)
-  list[item_name] = new_quant
+def update_list(list, item_name, new_quantity)
+  list[item_name] = new_quantity
   print_list(list)
 end
 
@@ -85,3 +85,18 @@ add_item_to_list(groceries, "Ice Cream", 4)
 rem_item_from_list(groceries, "Lemonade")
 
 update_list(groceries, "Ice Cream", 1)
+
+
+#Reflection
+  # I learned Pseudocode is hard but important and its a skill that I want to try to improve on
+  # If we used an array of arrays it would slightly complicate accessing the items and the Hash worked well for us
+  # a Method has an implicit return of the last expression in the method unless otherwise explicitly stated
+  # A array, a hash, a variable, another method, or even a block can be passed into a method
+  # By creating it to take arguments and it can return information which can be sent to another method
+  # I think we were both very confident in these concepts, however I do want to work more on Pseudocode
+  # as well as refactoring.
+
+
+
+
+
