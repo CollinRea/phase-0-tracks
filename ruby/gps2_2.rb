@@ -66,7 +66,7 @@ end
 def print_list(list)
   puts "Here are the items in your list:"
   list.each do |item, quantity|
-    puts "#{item}: #{quantity}"
+    puts "#{quantity} - #{item}"
   end
 end
 
@@ -75,8 +75,13 @@ end
 
 # DRIVER CODE
 
-groceries = new_list("apples oranges bananas kiwis")
+groceries = new_list("Bananas Grapes Strawberries")
 
-add_item_to_list(groceries, "grapes")
-rem_item_from_list(groceries, "apples")
-update_list(groceries, "bananas", 10)
+add_item_to_list(groceries, "Lemonade", 2)
+add_item_to_list(groceries, "Tomatoes", 3)
+add_item_to_list(groceries, "Onion")
+add_item_to_list(groceries, "Ice Cream", 4)
+
+rem_item_from_list(groceries, "Lemonade")
+
+update_list(groceries, "Ice Cream", 1)
