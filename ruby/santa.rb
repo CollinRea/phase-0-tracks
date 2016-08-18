@@ -35,14 +35,30 @@ class Santa
     puts "That was a good #{cookie}!"
   end
 
-  def about
-    puts "Santa is a #{@ethnicity} #{@gender}."
-    puts "Santa is #{@age} years old."
-    puts "Favorite Reindeer in order:"
-    puts "#{@reindeer_ranking}"
+  def celebrate_birthday
+    @age += 1
+  end
+
+  def get_mad_at(reindeer)
+    @reindeer_ranking.delete(reindeer)
+    @reindeer_ranking << reindeer
+  end
+
+  def gender=(new_gender)
+    @gender = new_gender
+  end
+
+  def age 
+    puts @age
+  end
+
+  def ethnicity
+    puts @ethnicity
   end
 
 end
+
+# DRIVER CODE
 
 santas = []
 
@@ -54,4 +70,24 @@ santa_genders.length.times do |i|
 end
 
 puts "#{santas}"
+
+the_real_santa = Santa.new("male", "magical")
+ 
+p the_real_santa
+
+the_real_santa.celebrate_birthday
+
+the_real_santa.get_mad_at("Rudolph")
+
+the_real_santa.gender=("n/a")
+
+p the_real_santa
+
+the_real_santa.age
+the_real_santa.ethnicity
+
+
+
+
+
 
