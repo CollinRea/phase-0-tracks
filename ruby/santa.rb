@@ -17,6 +17,8 @@
   # age - not passed in on initialization and defaults to 0
 
 class Santa
+  attr_reader :age, :ethnicity
+  attr_accessor :gender
 
   def initialize(gender,ethnicity)
     puts "Initializing Santa instance ..."
@@ -42,18 +44,6 @@ class Santa
   def get_mad_at(reindeer)
     @reindeer_ranking.delete(reindeer)
     @reindeer_ranking << reindeer
-  end
-
-  def gender=(new_gender)
-    @gender = new_gender
-  end
-
-  def age 
-    puts @age
-  end
-
-  def ethnicity
-    puts @ethnicity
   end
 
 end
@@ -83,8 +73,8 @@ the_real_santa.gender=("n/a")
 
 p the_real_santa
 
-the_real_santa.age
-the_real_santa.ethnicity
+puts "Santa's age is: #{the_real_santa.age}"
+puts "Santa identifies as a member of the #{the_real_santa.ethnicity} race."
 
 
 
