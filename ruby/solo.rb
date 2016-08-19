@@ -6,7 +6,7 @@
   # Experience (in years)
   # Languages known [Array in order of favorites]
   # Pro-Bootcamp : True or False
-    # if true - Add 'closed minded' attribute of True
+    # if true - Add 'closed minded' attribute of True  -- Scratched
   # Favorite Stimulant
 
 # Methods
@@ -16,16 +16,15 @@
   # Add new language
 
 class Programmer
-  attr_reader :language, :favorite_stim
+  attr_reader :language, :favorite_stim, :name
   attr_accessor :experience, :pro_boot
 
   def initialize(name,experience,language)
     puts "Initializing Programmer instance ..."
     @name = name
     @experience = experience
-    @language = [language]
+    @language = language
     @favorite_stim = "none"
-    @pro_boot = nil
   end
 
   def write_code(hours)
@@ -43,14 +42,6 @@ class Programmer
     @experience += 1
   end
 
-  def bootcamp
-    puts "What is your stance on Programming Boot Camps? (For or Against)"
-    pro_bootcamp = gets.chomp.downcase
-
-    @pro_boot = pro_bootcamp == "for" ? true : false
-    puts "pro_boot set to #{@pro_boot}."
-  end
-
 end
 
 # TEST CODE
@@ -61,8 +52,6 @@ end
 
 # collin.favorite_stim
 
-# collin.bootcamp
-
 # collin.level_up
 
 # USER INTERFACE
@@ -72,10 +61,10 @@ def pdi
   finished = false
   pdi_results = Array.new
 
-  while finished == false
+  puts "Welcome to the Programmer Database Initializer(PDI)"
+  puts "Lets get started..."
 
-    puts "Welcome to the Programmer Database Initializer(PDI)"
-    puts "Lets get started..."
+  while finished == false
 
     puts "Please provide the name of the Programmer: "
     programmer_name = gets.chomp
@@ -84,15 +73,31 @@ def pdi
     programmer_exp = gets.chomp.to_i
 
     puts "Please list known programming languages with most preferred languages first: "
-    programmer_lang = gets.chomp.gsub!(/[^0-9A-Za-z]/, ' ').split(" ")
+    programmer_lang = gets.chomp.gsub!(/[^+#0-9A-Za-z]/, ' ').split(" ")
 
-    pdi_results << Programmer.new(programmer_name, programmer_exp, programmer_lang)
+    programmer = Programmer.new(programmer_name, programmer_exp, programmer_lang)
 
-    finished = true
+    pdi_results << [programmer.name, programmer.experience, programmer.language]
+
+    puts "If this completes your entries, please type 'done' otherwise hit enter to continue: "
+    continue = gets.chomp.downcase
+
+    if continue == 'done'
+      finished = true
+    end
 
   end
 
-  p pdi_results
+  puts "Here are your entries that I added to the database:"
+  pdi_results.each do |x|
+    puts "-" * 15
+    puts x[0]
+    puts "Years Experience: #{x[1]}"
+    puts "Favorite Languages: "
+    p x[2]
+  end
+
+  puts "-" * 15
 
 end
 
