@@ -20,7 +20,6 @@ class Programmer
   attr_accessor :experience, :pro_boot
 
   def initialize(name,experience,language)
-    puts "Initializing Programmer instance ..."
     @name = name
     @experience = experience
     @language = language
@@ -31,7 +30,7 @@ class Programmer
     puts "Programmer writes code for #{hours} hours! Time for a short break..."
   end
 
-  def favorite_stim
+  def update_stimulant
     puts "Favorite stimulant is currently set to #{@favorite_stim}"
     puts "What would you like to update it to?"
     @favorite_stim = gets.chomp
@@ -73,11 +72,13 @@ def pdi
     programmer_exp = gets.chomp.to_i
 
     puts "Please list known programming languages with most preferred languages first: "
-    programmer_lang = gets.chomp.gsub!(/[^+#0-9A-Za-z]/, ' ').split(" ")
+    programmer_lang = gets.chomp.gsub(/[^+#0-9A-Za-z]/, ' ').split(" ")
 
     programmer = Programmer.new(programmer_name, programmer_exp, programmer_lang)
 
-    pdi_results << [programmer.name, programmer.experience, programmer.language]
+    programmer.update_stimulant
+
+    pdi_results << [programmer.name, programmer.experience, programmer.favorite_stim, programmer.language]
 
     puts "If this completes your entries, please type 'done' otherwise hit enter to continue: "
     continue = gets.chomp.downcase
@@ -88,13 +89,14 @@ def pdi
 
   end
 
-  puts "Here are your entries that I added to the database:"
+  puts "Here are your entries that we added to the database:"
   pdi_results.each do |x|
     puts "-" * 15
     puts x[0]
     puts "Years Experience: #{x[1]}"
+    puts "Preferred Stimulant: #{x[2]}"
     puts "Favorite Languages: "
-    p x[2]
+    puts x[3].join(", ")
   end
 
   puts "-" * 15
