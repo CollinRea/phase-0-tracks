@@ -17,36 +17,21 @@
 #end
 
 def alias_maker(name)
+  
+  consonants = "bcdfghjklmnpqrstvwxz"
+  next_cons = "cdfghjklmnpqrstvwxzb"
+  
+  name.downcase.tr(consonants,next_cons)
+    .tr('aeiouy', 'eiouya')
+    .split.reverse.each {|word| word.capitalize!}
+    .join(' ')
 
-  vowels = "aeiouya"
-  consonant = "bcdfghjklmnpqrstvwxzb"
+  # Separated methods on lines 24-27 for readability
+  # First .tr changes all consonants to next
+  # Second .tr changes all vowels to next vowel
+  # Split names to reverse and capitalize them
+  # Rejoin to a single string
 
-  name = name.split(" ").reverse.join(" ").downcase
-
-  name_i = 0
-  vc_counter = 0
-  new_name = ""
-
-  while name_i < name.length
-    if name[name_i] == vowels[vc_counter] || name[name_i] == consonant[vc_counter]
-      if name[name_i] == vowels[vc_counter]
-        new_name[name_i] = vowels[vc_counter + 1]
-        name_i += 1
-        vc_counter = 0
-      else
-        new_name[name_i] = consonant[vc_counter + 1]
-        name_i += 1
-        vc_counter = 0
-      end
-    elsif name[name_i] == " "
-      new_name[name_i] = name[name_i]
-      name_i += 1
-    else
-      vc_counter += 1
-    end
-  end
-
-  new_name.split.each {|word| word.capitalize!}.join(" ")
 end
 
 
@@ -70,12 +55,12 @@ def ui
       puts "     ..."
       puts "     ..."
       puts "Your Alias is:"
-      p alias_maker(user_name)
+      puts alias_maker(user_name)
       puts "If finished type 'quit' to exit, otherwise..."
   end
   end
   aliases
 end
 
-ui.each {|realname, aliasname| p "#{realname} was changed to #{aliasname}"}
+ui.each {|realname, aliasname| puts "#{realname} was changed to #{aliasname}."}
 
