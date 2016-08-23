@@ -4,31 +4,34 @@
 # We spent [1.5] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#It takes a relative path that is relative to the path that we are requiring from. It allows you to reference another ruby file or module to be use in the current program.
-# Require will take an absolute path.
-#require_relative 'state_data'
+# It takes a path that is relative to the file you are requiring it from. 
+# It allows you to reference another ruby file or module to be used in the current program.
+# Require will take an absolute path and is more complicated to use.
+require_relative 'state_data'
 
 
 class VirusPredictor
   attr_reader :population_density, :population, :state
   
-#initialize method of an instance of virus predictor setting the following attributes: state_of_origin , population_density, and population.
+# initializes an instance of VirusPredictor class and sets the following attributes: state_of_origin , population_density, and population.
   
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
-#virus_effects method to call the following methods: predicted_deaths method and speed_of_spread method so its joins the methods to make it easier.
+
+# virus_effects calls the following private methods - predicted_deaths and speed_of_spread.
+  
   def virus_effects
     predicted_deaths(population_density, population, state)
     speed_of_spread(population_density, state)
   end
 
   private
-#predicted_deaths and speed_of_spread are consider private methods so that is why the virus_effect method is use to call out the following methods below. 
+#predicted_deaths and speed_of_spread are considered private methods so that is why the virus_effect method is used to call out the following methods below. 
   
-#predicted_deaths takes the population density, population, and state attributes and use the if/else control flow statement to give us the outcome of deaths Outputs:print the result 
+#predicted_deaths takes the population density, population, and state attributes and uses the if/else control flow to give us the outcome of deaths Outputs:print the result 
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if population_density >= 200
@@ -46,7 +49,7 @@ class VirusPredictor
     print "#{state} will lose #{number_of_deaths} people in this outbreak"
 
   end
-#Taking the following attributes in the arguement and using and if/else control flow statement Output: prints the following results.
+#Takes population_density and state arguments and uses f/else control flow to determine result Output: prints the following results.
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
@@ -75,8 +78,6 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
-# Need new instance of each state as VirusPredictor class
-# 
 
 STATE_DATA.each do |key, value|
   new_state = VirusPredictor.new(key, STATE_DATA[key][:population_density], STATE_DATA[key][:population])
@@ -110,7 +111,8 @@ end
 # 4) It stood out to me that they were using the instance variables in the virus_effects method
 #     and they shouldn't have been required there.
 # 5) I think getting more practice iterating through a large hash was good, and also how the methods
-#     inside a class work with each other.
+#     inside a class work with each other. This assignment helps you take a program someone else wrote
+#     and analyze it to find ways to make it more efficient.
 
 
 
