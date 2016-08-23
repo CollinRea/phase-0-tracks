@@ -1,58 +1,64 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [with: Joel Matos].
+# We spent [1.5] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
-require_relative 'state_data'
+#It takes a relative path that is relative to the path that we are requiring from. It allows you to reference another ruby file or module to be use in the current program.
+# Require will take an absolute path.
+#require_relative 'state_data'
+
 
 class VirusPredictor
-
+  attr_reader :population_density, :population, :state
+  
+#initialize method of an instance of virus predictor setting the following attributes: state_of_origin , population_density, and population.
+  
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
-
+#virus_effects method to call the following methods: predicted_deaths method and speed_of_spread method so its joins the methods to make it easier.
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths(population_density, population, state)
+    speed_of_spread(population_density, state)
   end
 
   private
-
+#predicted_deaths and speed_of_spread are consider private methods so that is why the virus_effect method is use to call out the following methods below. 
+  
+#predicted_deaths takes the population density, population, and state attributes and use the if/else control flow statement to give us the outcome of deaths Outputs:print the result 
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+    if population_density >= 200
+      number_of_deaths = (population * 0.4).floor
+    elsif population_density >= 150
+      number_of_deaths = (population * 0.3).floor
+    elsif population_density >= 100
+      number_of_deaths = (population * 0.2).floor
+    elsif population_density >= 50
+      number_of_deaths = (population * 0.1).floor
     else
-      number_of_deaths = (@population * 0.05).floor
+      number_of_deaths = (population * 0.05).floor
     end
 
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    print "#{state} will lose #{number_of_deaths} people in this outbreak"
 
   end
-
+#Taking the following attributes in the arguement and using and if/else control flow statement Output: prints the following results.
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
 
-    if @population_density >= 200
+    if population_density >= 200
       speed += 0.5
-    elsif @population_density >= 150
+    elsif population_density >= 150
       speed += 1
-    elsif @population_density >= 100
+    elsif population_density >= 100
       speed += 1.5
-    elsif @population_density >= 50
+    elsif population_density >= 50
       speed += 2
     else
       speed += 2.5
@@ -69,19 +75,48 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
+# Need new instance of each state as VirusPredictor class
+# 
 
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
-alabama.virus_effects
+STATE_DATA.each do |key, value|
+  new_state = VirusPredictor.new(key, STATE_DATA[key][:population_density], STATE_DATA[key][:population])
+  new_state.virus_effects
+end
 
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
-jersey.virus_effects
 
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
-california.virus_effects
+# alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
+# alabama.virus_effects
 
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
-alaska.virus_effects
+# jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
+# jersey.virus_effects
+
+# california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
+# california.virus_effects
+
+# alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
+# alaska.virus_effects
 
 
 #=======================================================================
 # Reflection Section
+
+# 1) The difference in the Hash state_data file were the hash rocket => and the : 
+#     The hash rocket has to be used when using a string for a key to reference the value.
+#     The : is used with symbols
+# 2) Require Relative is used as to reference a file that is relative to the current file and is seen to be 
+#     more a more convenient version of Require. Require needs an absolute path.
+# 3) We used .each to iterate through the Hash, but you could use any of the other built in iterators
+#     depending on what you need to do with the hash.
+# 4) It stood out to me that they were using the instance variables in the virus_effects method
+#     and they shouldn't have been required there.
+# 5) I think getting more practice iterating through a large hash was good, and also how the methods
+#     inside a class work with each other.
+
+
+
+
+
+
+
+
+
