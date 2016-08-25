@@ -12,20 +12,32 @@ class Hangman
   end
   
   def guess(guess_letter)
-    if @tries <= 6
+    if check_tries(guess_letter)   # => check if user has tries left
       @correct_word.split("").each_with_index do |letter, index|
         if guess_letter == letter && @guess_spaces[index] == "_"
           @guess_spaces[index] = guess_letter
-          puts "Correct!"
-          puts game_status
-          game_complete
+          puts game_status    # => print current game status
+          game_complete       # => check if word is complete
         end
       end
-    else
-      puts "No more tries.. Sorry :( Game Over!"
     end
   end
   
+  def check_tries(guess_letter)
+    if @tries >= 6
+      puts "I am sorry, you are out of tries! Game Over :("
+      false
+    elsif @correct_word.include? guess_letter
+      puts "Correct!"
+      true
+    else
+      @tries += 1
+      @misses << guess_letter
+      puts "Sorry #{guess_letter} is not a letter in this word."
+      false
+    end
+  end
+
   def game_status
     @guess_spaces.capitalize.split("").join(" ")
   end
@@ -40,13 +52,13 @@ end
 first_game = Hangman.new("Jamaica")
 
 first_game.guess("a")
-first_game.guess("z")
-first_game.guess("j")
 first_game.guess("i")
-first_game.guess("c")
+first_game.guess("n")
+first_game.guess("b")
+first_game.guess("p")
 first_game.guess("q")
-first_game.guess("t")
+first_game.guess("d")
+first_game.guess("h")
 p first_game.misses
 p first_game.tries
-
-
+first_game.guess("u")
