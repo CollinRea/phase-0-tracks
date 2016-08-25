@@ -9,11 +9,13 @@
 // Output: reversed string
 // Bonus: Write a new function that prints to separate the work
 
-var str = "Collin"
-var newString = ""
 
-for (var i = str.length - 1; i >= 0; i--) {
-  newString += str[i];
+function reverse(str) {
+  var newString = ""
+  for (var i = str.length - 1; i >= 0; i--) {
+    newString += str[i];
+  }
+  console.log(newString)
 }
 
-console.log(newString);
+reverse("Collin");
