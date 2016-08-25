@@ -1,15 +1,23 @@
 
 class Hangman
   attr_reader :tries, :misses
-  attr_accessor :tries_max      #This will allow the admin to set max tries
+  # attr_accessor :tries_max      #This will allow the admin to set max tries
   
-  def initialize(correct_word)
-    @correct_word = correct_word.downcase
-    @guess_spaces = "_" * correct_word.length
+  def initialize
+    @correct_word = File.readlines("words.txt").sample.chomp.downcase
+    @guess_spaces = "_" * @correct_word.length
     @tries = 0
     @tries_max = 6
     @misses = []
     puts "Generating word... Good Luck!"
+    puts " _____"
+    puts " |   |"
+    puts " |"
+    puts " |"
+    puts " |"
+    puts " |"
+    puts "_|______"
+    puts game_status
     
   end
   
@@ -70,16 +78,20 @@ end
 
 
 # DRIVER CODE
+# first_game = Hangman.new
 
-first_game = Hangman.new("Jamaica")
+# first_game.guess("a")
+# first_game.guess("i")
+# first_game.guess("n")
+# first_game.guess("b")
+# first_game.guess("p")
+# first_game.guess("q")
+# first_game.guess("d")
+# first_game.guess("h")
+# first_game.guess("e")
+# first_game.guess("s")
+# p first_game.misses
+# p first_game.tries
 
-first_game.guess("a")
-first_game.guess("i")
-first_game.guess("n")
-first_game.guess("b")
-first_game.guess("p")
-first_game.guess("q")
-first_game.guess("d")
-first_game.guess("h")
-p first_game.misses
-p first_game.tries
+
+
