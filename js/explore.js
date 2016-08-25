@@ -15,7 +15,11 @@ function reverse(str) {
   for (var i = str.length - 1; i >= 0; i--) {
     newString += str[i];
   }
-  console.log(newString)
+  return newString;
 }
 
-reverse("Collin");
+reversedString = reverse("Collin");
+
+if ( 1 == 1) {
+  console.log(reversedString);
+}
