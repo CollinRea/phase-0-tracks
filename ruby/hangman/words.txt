@@ -17,3 +17,7 @@ Queen
 Zoom
 Yarn
 Rusty
+Blank
+Project
+Proper
+Cucumber

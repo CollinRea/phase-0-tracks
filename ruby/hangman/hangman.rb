@@ -1,15 +1,12 @@
-require_relative 'words'
-
 
 class Hangman
-  attr_reader :tries, :misses
-  # attr_accessor :tries_max      #This will allow the admin to set max tries
-  
+  attr_reader :tries, :misses, :tries_max
+
   def initialize
     @correct_word = File.readlines("words.txt").sample.chomp.downcase
     @guess_spaces = "_" * @correct_word.length
     @tries = 0
-    @tries_max = 6
+    @tries_max = 7
     @misses = []
     puts "Generating word... Good Luck!"
     puts " _____"
@@ -56,7 +53,7 @@ class Hangman
   end
   
   def game_over
-    if @tries >= 6
+    if @tries >= @tries_max
       puts " _____ "
       puts " |   | "
       puts " |  ( ) "
@@ -67,6 +64,8 @@ class Hangman
       puts "Sorry! You are out of tries... the correct word was:"
       puts @correct_word.capitalize.split("").join(" ")
       true
+    else
+      false
     end
   end
 
@@ -77,8 +76,19 @@ end
 
 # USER INTERFACE
 
+def play_game
 
+puts "Welcome to Hangman v0.01 (beta)"
+new_game = Hangman.new
 
+while new_game.tries < new_game.tries_max
+    puts "Please choose a letter: "
+    new_game.guess(gets.chomp)
+    puts "Letters missed: #{new_game.misses}"
+  end
+end
+
+play_game
 # DRIVER CODE
 # first_game = Hangman.new
 
