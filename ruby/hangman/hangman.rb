@@ -1,3 +1,5 @@
+require_relative 'words'
+
 
 class Hangman
   attr_reader :tries, :misses
