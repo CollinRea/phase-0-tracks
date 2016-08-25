@@ -1,19 +1,28 @@
 
 class Hangman
+  attr_reader :tries, :misses
   
   def initialize(correct_word)
     @correct_word = correct_word.downcase
     @guess_spaces = "_" * correct_word.length
+    @tries = 0
+    @misses = []
+    puts "Generating word... Good Luck!"
+    
   end
   
   def guess(guess_letter)
-    @correct_word.split("").each_with_index do |letter, index|
-      if guess_letter == letter
-        @guess_spaces[index] = guess_letter
-        puts "Correct!"
-        puts game_status
-        game_complete
+    if @tries <= 6
+      @correct_word.split("").each_with_index do |letter, index|
+        if guess_letter == letter && @guess_spaces[index] == "_"
+          @guess_spaces[index] = guess_letter
+          puts "Correct!"
+          puts game_status
+          game_complete
+        end
       end
+    else
+      puts "No more tries.. Sorry :( Game Over!"
     end
   end
   
@@ -35,4 +44,9 @@ first_game.guess("z")
 first_game.guess("j")
 first_game.guess("i")
 first_game.guess("c")
-first_game.guess("m")
+first_game.guess("q")
+first_game.guess("t")
+p first_game.misses
+p first_game.tries
+
+
