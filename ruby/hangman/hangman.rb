@@ -26,9 +26,8 @@ class Hangman
   end
   
   def check_tries(guess_letter)
-    if @tries >= 6
-      game_over
-      false
+    if game_over    # check game_over, which returns true if tries are at 6
+      false         # sends false back to guess to not allow the iteration
     elsif @correct_word.include? guess_letter
       puts "Correct!"
       true
@@ -36,7 +35,7 @@ class Hangman
       @tries += 1
       @misses << guess_letter
       puts "Sorry '#{guess_letter}' is not a letter in this word."
-      puts "You have #{@tries_max - @tries} tries left."
+      puts "Guesses Remaining: #{@tries_max - @tries}"
       game_over
       false
     end
@@ -48,8 +47,16 @@ class Hangman
   
   def game_over
     if @tries >= 6
+      puts " _____ "
+      puts " |   | "
+      puts " |  ( ) "
+      puts " |  _|_ "
+      puts " |   |  "
+      puts " |  / \\ "
+      puts "_|______ "
       puts "Sorry! You are out of tries... the correct word was:"
       puts @correct_word.capitalize.split("").join(" ")
+      true
     end
   end
 
