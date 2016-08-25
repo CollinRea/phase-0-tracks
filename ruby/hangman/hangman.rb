@@ -42,7 +42,6 @@ class Hangman
       @tries += 1
       @misses << guess_letter
       puts "Sorry '#{guess_letter}' is not a letter in this word."
-      puts "Guesses Remaining: #{@tries_max - @tries}"
       game_over
       false
     end
@@ -64,13 +63,14 @@ class Hangman
       puts "Sorry! You are out of tries... the correct word was:"
       puts @correct_word.capitalize.split("").join(" ")
       true
-    else
-      false
     end
   end
 
   def game_complete
-    puts "Game over! You Win!" if @correct_word == @guess_spaces
+    if @correct_word == @guess_spaces
+      puts "Game over! You Win!"
+      @tries = @tries_max
+    end
   end
 end
 
@@ -81,29 +81,14 @@ def play_game
 puts "Welcome to Hangman v0.01 (beta)"
 new_game = Hangman.new
 
-while new_game.tries < new_game.tries_max
+until new_game.tries == new_game.tries_max 
     puts "Please choose a letter: "
-    new_game.guess(gets.chomp)
+    new_game.guess(gets.chomp.to_s.downcase)
     puts "Letters missed: #{new_game.misses}"
+    puts "Guesses Remaining: #{new_game.tries_max - new_game.tries}"
   end
 end
 
 play_game
-# DRIVER CODE
-# first_game = Hangman.new
-
-# first_game.guess("a")
-# first_game.guess("i")
-# first_game.guess("n")
-# first_game.guess("b")
-# first_game.guess("p")
-# first_game.guess("q")
-# first_game.guess("d")
-# first_game.guess("h")
-# first_game.guess("e")
-# first_game.guess("s")
-# p first_game.misses
-# p first_game.tries
-
 
 
