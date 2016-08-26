@@ -1,11 +1,6 @@
 // PSEUDOCODE 
-// - Write a function that takes an array of words or phrases and returns the longest...
-// -So if we gave your function the array of ["long phrase","longest phrase","longer phrase"], 
-//  it would return "longest phrase".
-// -This is a logical reasoning challenge, so try to reason through this based on what you already know, 
-//  rather than Googling the fanciest solution or looking up built-in sorting functions. 
-// -Note that "some string".length will do what you expect in JS.
 
+// Release 0
 // First declare the function that takes one argument
 // INPUT: Array
 // Declare a variable to hold a value for longest element
@@ -24,4 +19,35 @@ function Longest(arr) {
   return longestVariable;
 }
 
+// Release 1 
+// Declare a function that takes 2 arguments
+// INPUT: 2 Objects
+// Setup for/in loop that loops through first object keys
+// for each first object key, loop through the second object comparing to each key
+// if match is found, return true
+// if no match, return false
+
+function Compare(obj1, obj2) {
+  for (var key1 in obj1) {
+    for (var key2 in obj2) {
+      if (obj1[key1] == obj2[key2] && key1 == key2)
+        return true;
+    }
+  }
+  return false;
+}
+
+
+
+
+// DRIVER CODE
+
+// Test for first algo (release 0)
 console.log(Longest(["long phrase","longest phrase","longer phrase"]));
+
+// Test for second algo (release 1)
+var object1 = {name: "Steven", age: 54};
+var object2 = {name: "Tamir", age: 54};
+
+console.log(Compare(object1,object2));
+
