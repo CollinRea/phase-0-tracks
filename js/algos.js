@@ -8,7 +8,7 @@
 // Setup a for/of loop to iterate through the array 
 // Compare each element to longest element variable, if longer reassign to longest variable.
 // end loop
-// Output: Longest element variable
+// OUTPUT: Longest element variable
 
 function Longest(arr) {
   var longestVariable = "";
@@ -19,6 +19,7 @@ function Longest(arr) {
   return longestVariable;
 }
 
+
 // Release 1 
 // Declare a function that takes 2 arguments
 // INPUT: 2 Objects
@@ -26,6 +27,7 @@ function Longest(arr) {
 // for each first object key, loop through the second object comparing to each key
 // if match is found, return true
 // if no match, return false
+// OUTPUT: Boolean
 
 function Compare(obj1, obj2) {
   for (var key1 in obj1) {
@@ -38,7 +40,24 @@ function Compare(obj1, obj2) {
 }
 
 
+// Release 2
+// Declare a function that takes 1 argument
+// INPUT: 1 integer
+// Declare alphabet variable
+// Generate a random number to determine string length
+// Generate a string of random letters (random length)
+// OUTPUT: Array of strings (length of given integer)
 
+function RandomArray(num) {
+  var alph = "abcdefghijklmnopqrstuvwxyz"
+  var strLength = Math.floor(Math.random()*10 + 1);
+  var newArray = []
+  for (var i = 0; i < num; i++) {
+    newArray[i] = i;
+  }
+  
+  return newArray;
+}
 
 // DRIVER CODE
 
@@ -52,3 +71,9 @@ var object3 = {name: "Steven", age: 54};
 var object4 = {name: "Tamir", age: 14};
 console.log(Compare(object1,object2));  // => returns true as expected
 console.log(Compare(object3,object4)); // => returns false as expected
+
+// Test for third algo (release 2)
+console.log(RandomArray(5));
+
+
+
