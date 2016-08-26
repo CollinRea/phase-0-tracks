@@ -77,7 +77,24 @@ console.log(Compare(object1,object2));  // => returns true as expected
 console.log(Compare(object3,object4)); // => returns false as expected
 
 // Test for third algo (release 2)
-console.log(RandomArray(5));
+var array1 = RandomArray(4);
+var array2 = RandomArray(5);
+var array3 = RandomArray(7);
+var array4 = RandomArray(8);
+var array5 = RandomArray(10);
+
+console.log(array1);
+console.log("Longest is " + Longest(array1) + " at a length of: " + Longest(array1).length);
+console.log(array2);
+console.log("Longest is " + Longest(array2) + " at a length of: " + Longest(array2).length);
+console.log(array3);
+console.log("Longest is " + Longest(array3) + " at a length of: " + Longest(array3).length);
+console.log(array4);
+console.log("Longest is " + Longest(array4) + " at a length of: " + Longest(array4).length);
+console.log(array5);
+console.log("Longest is " + Longest(array5) + " at a length of: " + Longest(array5).length);
+
+
 
 
 
