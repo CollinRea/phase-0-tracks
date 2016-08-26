@@ -48,6 +48,7 @@ console.log(Longest(["long phrase","longest phrase","longer phrase"]));
 // Test for second algo (release 1)
 var object1 = {name: "Steven", age: 54};
 var object2 = {name: "Tamir", age: 54};
-
-console.log(Compare(object1,object2));
-
+var object3 = {name: "Steven", age: 54};
+var object4 = {name: "Tamir", age: 14};
+console.log(Compare(object1,object2));  // => returns true as expected
+console.log(Compare(object3,object4)); // => returns false as expected
