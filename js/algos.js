@@ -50,12 +50,16 @@ function Compare(obj1, obj2) {
 
 function RandomArray(num) {
   var alph = "abcdefghijklmnopqrstuvwxyz"
-  var strLength = Math.floor(Math.random()*10 + 1);
   var newArray = []
   for (var i = 0; i < num; i++) {
-    newArray[i] = i;
+    var randomWord = "";
+    var strLength = Math.floor(Math.random()*10 + 1);
+    for (var j = 0; j < strLength; j++) {
+      var randomLetter = "";
+      randomLetter = alph[Math.floor(Math.random() * alph.length)];
+      newArray[i] = (randomWord += randomLetter);
+    }
   }
-  
   return newArray;
 }
 
