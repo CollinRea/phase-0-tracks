@@ -31,3 +31,16 @@
     2|Sarah|1985-11-11|3
     3|Mike|1989-01-25|2
     4|Justin|1987-04-09|1
+
+
+SELECT students.name, cohort.name, date_of_birth, cohort_id FROM students LEFT OUTER JOIN cohort ON cohort.id = students.cohort_id;
+Collin|Bobolinks|1983-08-04|1
+Sarah|Chipmunks|1985-11-11|3
+Mike|Coyotes|1989-01-25|2
+Justin|Bobolinks|1987-04-09|1
+
+SELECT students.id, date_of_birth, cohort_id, cohort.name FROM students CROSS JOIN cohort ON cohort.id = students.cohort_id;
+1|1983-08-04|1|Bobolinks
+2|1985-11-11|3|Chipmunks
+3|1989-01-25|2|Coyotes
+4|1987-04-09|1|Bobolinks
