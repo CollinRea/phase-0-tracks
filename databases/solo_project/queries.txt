@@ -1,0 +1,46 @@
+1)  SELECT * FROM students;
+    id|name|date_of_birth|cohort_id
+    1|Collin|1983-08-04|1
+    2|Sarah|1985-11-11|3
+    3|Mike|1989-01-25|2
+    4|Justin|1987-04-09|1
+    5|Lindsey|1982-07-10|3
+
+2)  UPDATE students SET date_of_birth = "1983-07-10" WHERE name = "Lindsey";
+
+3)  SELECT * FROM cohort, students WHERE cohort.id = students.cohort_id;
+    id|location|name|open|id|name|date_of_birth|cohort_id
+    1|Chicago|Bobolinks|false|1|Collin|1983-08-04|1
+    3|New York City|Chipmunks|true|2|Sarah|1985-11-11|3
+    2|San Francisco|Coyotes|false|3|Mike|1989-01-25|2
+    1|Chicago|Bobolinks|false|4|Justin|1987-04-09|1
+    3|New York City|Chipmunks|true|5|Lindsey|1983-07-10|3
+
+4)  SELECT students.name, cohort.name, cohort.location, cohort.open FROM students JOIN cohort ON cohort.id = students.cohort_id;
+    name|name|location|open
+    Collin|Bobolinks|Chicago|false
+    Sarah|Chipmunks|New York City|true
+    Mike|Coyotes|San Francisco|false
+    Justin|Bobolinks|Chicago|false
+    Lindsey|Chipmunks|New York City|true
+
+5)  DELETE FROM students WHERE name = "Lindsey";                                     
+    SELECT * FROM students;
+    id|name|date_of_birth|cohort_id
+    1|Collin|1983-08-04|1
+    2|Sarah|1985-11-11|3
+    3|Mike|1989-01-25|2
+    4|Justin|1987-04-09|1
+
+
+SELECT students.name, cohort.name, date_of_birth, cohort_id FROM students LEFT OUTER JOIN cohort ON cohort.id = students.cohort_id;
+Collin|Bobolinks|1983-08-04|1
+Sarah|Chipmunks|1985-11-11|3
+Mike|Coyotes|1989-01-25|2
+Justin|Bobolinks|1987-04-09|1
+
+SELECT students.id, date_of_birth, cohort_id, cohort.name FROM students CROSS JOIN cohort ON cohort.id = students.cohort_id;
+1|1983-08-04|1|Bobolinks
+2|1985-11-11|3|Chipmunks
+3|1989-01-25|2|Coyotes
+4|1987-04-09|1|Bobolinks
