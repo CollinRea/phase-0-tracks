@@ -4,7 +4,8 @@ require 'sqlite3'
 # require 'faker'
 
 # create database for Daycares
-db = SQLite3::Database.new ("daycares.db")
+$DB = SQLite3::Database.new ("daycares.db")
+$DB.results_as_hash = true
 
 # create table in db for daycares
 create_table_cmd = <<-SQL_TABLE 
@@ -15,7 +16,7 @@ create_table_cmd = <<-SQL_TABLE
     min_age INT,
     max_age INT,
     spots_avail BOOLEAN
-  );
+  )
   SQL_TABLE
 
 # create table in db for reviews
@@ -26,9 +27,15 @@ create_reviews_cmd = <<-SQL_TABLE
     recommended BOOLEAN,
     daycare_id INT,
     FOREIGN KEY (daycare_id) REFERENCES daycares(id)
-  );
+  )
   SQL_TABLE
 
-  db.execute(create_table_cmd)
-  db.execute(create_reviews_cmd)
+  $DB.execute(create_table_cmd)
+  $DB.execute(create_reviews_cmd)
 
+def add_daycare(name, loc, min_age, max_age, spots)
+  new_daycare = "INSERT INTO daycares (name, loc, min_age, max_age, spots_avail) VALUES (?, ?, ?, ?, ?)"
+  $DB.execute(new_daycare, [name, loc, min_age, max_age, spots])
+end
+
+# add_daycare("KinderCare", "Schaumburg", 0, 7, "true")
