@@ -35,10 +35,6 @@ SQL_TABLE
 
 $DB.execute(create_reviews_cmd)
 
-# Global variables for functions to access tables
-$DAYCARES_DATA = $DB.execute("SELECT * FROM daycares")
-$REVIEWS_DATA = $DB.execute("SELECT * FROM reviews")
-
 
 # function to add daycare which takes 5 arguments and passes to SQLite, returns to UI
 def add_daycare(name, loc, min_age, max_age, spots)
@@ -60,7 +56,9 @@ end
 
 # function to retrieve daycares from SQLite and display to user, returns to UI
 def display_daycares
-  $DAYCARES_DATA.each_with_index do |daycare, index|
+  daycare_data = $DB.execute("SELECT * FROM daycares")
+
+  daycare_data.each_with_index do |daycare, index|
     puts "-- Daycare #{index + 1} --"
     puts "#{daycare['name']} in #{daycare['loc']}"
     if daycare['min_age'] == 0
@@ -107,7 +105,7 @@ def update_daycare(updated_key, updated_value, daycare_name)
   SQL
 
   $DB.execute(update_entry)
-  
+
   user_interface
 end
 
