@@ -57,3 +57,20 @@ Generic error message, given when an unexpected condition was encountered and no
 * POST requests have no restrictions on data length
 
 
+[Additional Methods and information](http://www.w3schools.com/tags/ref_httpmethods.asp)
+
+
+### HTTP Cookies
+
+A cookie is a small piece of data that a server sends to the client that may be stored by the browser and sent back together with the next request to the server. Typically, it is used to know if two requests came from the same browser allowing to keep a user logged-in. It remembers 'stateful' information for the 'stateless' HTTP protocol.
+
+**Cookies are mainly used for these three purposes:**
+
+* Session management (user logins, shopping carts)
+* Personalization (user preferences)
+* Tracking (analyzing user behavior)
+
+[More information can be found here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+
+
+
