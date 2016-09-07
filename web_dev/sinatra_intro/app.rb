@@ -62,3 +62,11 @@ get '/great_job' do
 end
 
 
+get '/add/:number1&:number2' do
+  result = params[:number1].to_i + params[:number2].to_i
+  result.to_s
+end
+
+
+
+
