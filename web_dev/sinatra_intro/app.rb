@@ -40,10 +40,10 @@ end
 # write a GET route that retrieves
 # a particular student
 
-get '/students/:id' do
-  student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
-  student.to_s
-end
+# get '/students/:id' do
+#   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
+#   student.to_s
+# end
 
 get '/contact' do
   address = ""
@@ -67,6 +67,17 @@ get '/add/:number1&:number2' do
   result.to_s
 end
 
+get '/students/:campus' do
+  location = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+  response = ""
+  location.each do |student|
+    response << "ID: #{student['id']}<br>"
+    response << "Name: #{student['name']}<br>"
+    response << "Age: #{student['age']}<br>"
+    response << "Campus: #{student['campus']}<br><br>"
+  end
+  response
+end
 
 
 
