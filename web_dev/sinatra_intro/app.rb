@@ -52,6 +52,13 @@ get '/contact' do
   address << "Phone: <br>1-800-Callnow"
 end
 
-
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Good job, #{name}!"
+  else
+    "Good job!"
+  end
+end
 
 
