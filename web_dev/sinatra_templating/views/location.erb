@@ -1,0 +1,17 @@
+<html>
+<head>
+  <title>Location Cohort</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Students Attending <%= params['campus'] %></h1>
+  <p>Here is a list of the student's attending the <%= params['campus'] %> cohort.</p>
+  <ul>
+    <% @students.each do |student| %>
+      <li><%= student['name'] %>, <%= student['age'] %>, <%= student['campus'] %></li>
+    <% end %>
+  </ul>
+
+  <a href = "/"> Return </a>
+</body>
+</html>
