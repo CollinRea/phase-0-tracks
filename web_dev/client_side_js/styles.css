@@ -1,0 +1,18 @@
+body {
+  background-color: lightblue;
+  font-family: helvetica;
+  max-width: 800px;
+}
+
+img {
+  border-color: lightgrey;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+}
+.sidemenu {
+  width: 10%;
+  height: 100%;
+  position: relative;
+  background-color: darkgrey;
+}
