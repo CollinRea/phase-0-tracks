@@ -1,18 +1,45 @@
+* {
+  color: #333333;
+}
+
 body {
   background-color: lightblue;
   font-family: helvetica;
-  max-width: 800px;
+}
+
+#main {
+  max-width: 700px;
+  margin: 30px;
+  position: relative;
+  display: block;
+  left: 100px;
 }
 
 img {
-  border-color: lightgrey;
-  border-width: 2px;
-  border-style: solid;
   border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.sidemenu {
-  width: 10%;
+#sidemenu {
+  width: 100px;
   height: 100%;
+  position: fixed;
+  background-color: lightgray;
+  padding: 10px;
+  padding-top: 35px;
+  margin: -19px;
+  margin-top: -30px;
+  border-right: 2px solid #333333;
+}
+
+li {
+  padding: 10px;
+  list-style: none;
+  margin-left: -20px;
+  margin-top: 20px;
+}
+
+p {
   position: relative;
-  background-color: darkgrey;
+  display: block;
 }
