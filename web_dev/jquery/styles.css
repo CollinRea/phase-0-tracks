@@ -1,0 +1,18 @@
+* {
+  font-family: Helvetica;
+}
+
+img {
+  height: 250px;
+  width: 35%;
+}
+
+#present {
+  display: none;
+}
+
+#thank {
+  font-size: 100px;
+  position: relative;
+  right: 505px;
+}
